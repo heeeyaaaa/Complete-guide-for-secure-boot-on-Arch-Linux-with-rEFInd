@@ -131,7 +131,7 @@ I spent a long time debugging this. I enrolled my key over and over, checked tha
 
 Before the step-by-step, here are the things that wasted the most of my time:
 
-**Thinking rEFInd --shim was enough.** It sets up the signing chain for the bootloader and kernel.  It doesn't enable MOK propagation to the kernel keyring or module signing enforcemnt. You still need `mokutil --trust-mok` and to set the module.sig_enforce=1 paramater in the bootloader config.
+**Thinking rEFInd --shim was enough.** It sets up the signing chain for the bootloader and kernel.  It doesn't enable MOK propagation to the kernel keyring or module signing enforcement. You still need `mokutil --trust-mok` and to set the module.sig_enforce=1 parameter in the bootloader config.
 
 **Enrolling  duplicate MOKs.** When nothing worked, I kept running `mokutil --import` thinking maybe it hadn't taken. It had. The problem was elsewhere. Check `sudo mokutil --list-enrolled | grep -c "Certificate:"` before importing again.
 
